@@ -1,20 +1,25 @@
 ---
-- name: "'gnome-desktop' group not installed"
+- name: "install epel-release"
   yum:
-    name: "@^gnome-desktop"
-    state: absent
-  when:
-     - remove_gnome_3 == True
+    name: "epel-release"
+    state: present
 
-- name: "'X Window system' group installed"
+- name: "'Server with GUI' group installed"
   yum:
-    name: "@X Window System"
+    name: "@Server with GUI"
     state: present
 
 - name: "'Mate-desktop' group installed"
   yum:
     name: "@^MATE Desktop"
     state: present
+
+- name: "'gnome-desktop' group not installed"
+  yum:
+    name: "@^gnome-desktop"
+    state: absent
+  when:
+     - remove_gnome_3 == True
   
 - name: Enable graphical booting (if 'headless == False')
   shell: "systemctl set-default graphical.target"
