@@ -3,7 +3,7 @@
 Ensure a traditional desktop enviroment (gnome 2/mate) is installed on RHEL/Ubuntu. e.g.
 
 - RHEL 6: Gnome 2 is installed
-- RHEL 7: MATE is installed from the ELREPO
+- RHEL 7: MATE/GNOME is installed
 - Ubuntu: MATE is installed from the universe repository
 
 ## Requirements
@@ -26,7 +26,7 @@ gabethecabbage.elrepo
     ---
     - hosts: servers
       roles:
-        - role: gabethecabbage.traditional-desktop
+        - role: dfgd.MateGnome-desktop
     ...
 
 ## License
@@ -35,5 +35,7 @@ BSD
 
 ## Author Information
 
-This role was created by [Gabe Schrecker](https://github.com/gabethecabbage).
+Changed by [dfgd](https://github.com/dfgd).
+
+Forked role from[Gabe Schrecker](https://github.com/gabethecabbage).
 
