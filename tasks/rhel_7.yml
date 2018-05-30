@@ -3,29 +3,35 @@
   yum:
     name: "epel-release"
     state: present
+  become: true
 
 - name: "'Server with GUI' group installed"
   yum:
     name: "@Server with GUI"
     state: present
+  become: true
 
 - name: "'Mate-desktop' group installed"
   yum:
     name: "@^MATE Desktop"
     state: present
+  become: true
 
 - name: "'gnome-desktop' group not installed"
   yum:
     name: "@^gnome-desktop"
     state: absent
+  become: true
   when:
      - remove_gnome_3 == True
   
 - name: Enable graphical booting (if 'headless == False')
   shell: "systemctl set-default graphical.target"
+  become: true
   when: headless == False
   
 - name: Disable graphical booting  (if 'headless == True')
   shell: "systemctl set-default multi-user.target"
+  become: true
   when: headless == True
 ...
