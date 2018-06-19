@@ -7,6 +7,7 @@
 
 - name: Activate epel-testing
   command: yum-config-manager --enable epel-testing
+become: true
 
 - name: "'Server with GUI' group installed"
   yum:
@@ -42,4 +43,5 @@
 
 - name: Deactivate epel-testing
   command: yum-config-manager --disable epel-testing
+become: true
 ...
