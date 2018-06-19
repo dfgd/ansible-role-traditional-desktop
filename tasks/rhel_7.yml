@@ -5,6 +5,9 @@
     state: present
   become: true
 
+- name: Activate epel-testing
+  command: yum-config-manager --enable epel-testing
+
 - name: "'Server with GUI' group installed"
   yum:
     name: "@Server with GUI"
@@ -35,4 +38,8 @@
   shell: "systemctl set-default multi-user.target"
   become: true
   when: headless == True
+
+
+- name: Deactivate epel-testing
+  command: yum-config-manager --disable epel-testing
 ...
