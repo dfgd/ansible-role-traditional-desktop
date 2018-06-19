@@ -5,10 +5,6 @@
     state: present
   become: true
 
-- name: Activate epel-testing
-  shell: yum-config-manager --enable epel-testing
-  become: true
-
 - name: "'Server with GUI' group installed"
   yum:
     name: "@Server with GUI"
@@ -40,7 +36,4 @@
   become: true
   when: headless == True
 
-- name: Deactivate epel-testing
-  shell: yum-config-manager --disable epel-testing
-  become: true
 ...
